@@ -26,7 +26,7 @@ public class Prob2884 {
             }
         }
         System.out.printf("%d %d", h, m);
-//         System.out.print(h);
+//        System.out.print(h);
 //        System.out.print(" ");
 //        System.out.print(m);
     }

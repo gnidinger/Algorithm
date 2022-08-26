@@ -13,11 +13,11 @@ public class Prob2884 {
         int h = sc.nextInt();
         int m = sc.nextInt();
 
-        if(m >= 45) {
+        if (m >= 45) {
             h = h;
             m = m - 45;
         } else if (m < 45) {
-            if(h == 0) {
+            if (h == 0) {
                 h = 23;
                 m += 15;
             } else {
@@ -26,8 +26,5 @@ public class Prob2884 {
             }
         }
         System.out.printf("%d %d", h, m);
-//        System.out.print(h);
-//        System.out.print(" ");
-//        System.out.print(m);
     }
 }

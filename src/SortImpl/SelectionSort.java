@@ -6,7 +6,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {4, 2, 5, 4, 3, 1, 10, 3};
+        int[] arr = {4, 16, 31, 5, 4, 17, 1, 10, 15, 3, 16, 6, 7, 2, 2, 1, 5, 13, 17, 14, 4, 0};
 
         selectionSortImpl(arr);
 

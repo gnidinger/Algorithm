@@ -6,7 +6,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {4, 31, 5, 4, 17, 1, 10, 15, 3};
+        int[] arr = {4, 16, 31, 5, 4, 17, 1, 10, 15, 3, 16, 6, 7, 2, 2, 1, 5, 13, 17, 14, 4, 0};
 
         quickSortImpl(arr, 0, arr.length - 1);
 

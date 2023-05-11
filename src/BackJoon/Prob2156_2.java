@@ -4,27 +4,30 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Prob1463_4 {
+public class Prob2156_2 {
 
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int n = Integer.parseInt(br.readLine());
+		int[] wine = new int[n + 1];
 		int[] memo = new int[n + 1];
-		memo[1] = 0;
 
-		for (int i = 2; i <= n; i++) {
-			memo[i] = memo[i - 1] + 1;
-
-			if (i % 3 == 0) {
-				memo[i] = Math.min(memo[i], memo[i / 3] + 1);
-			}
-
-			if (i % 2 == 0) {
-				memo[i] = Math.min(memo[i], memo[i / 2] + 1);
-			}
+		for (int i = 1; i <= n; i++) {
+			wine[i] = Integer.parseInt(br.readLine());
 		}
+
+		memo[1] = wine[1];
+
+		if (n >= 2) {
+			memo[2] = memo[1] + wine[2];
+		}
+
+		for (int i = 3; i <= n; i++) {
+			memo[i] = Math.max(memo[i - 1], Math.max(memo[i - 2] + wine[i], memo[i - 3] + wine[i - 1] + wine[i]));
+		}
+
 		System.out.println(memo[n]);
 	}
 }

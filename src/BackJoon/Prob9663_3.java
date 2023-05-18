@@ -16,28 +16,30 @@ public class Prob9663_3 {
 
 		n = Integer.parseInt(br.readLine());
 		column = new int[n];
+
 		dfs(0);
+
 		System.out.println(result);
 	}
 
-	static void dfs(int row) {
+	static void dfs(int depth) {
 
-		if (row == n) {
+		if (depth == n) {
 			result++;
 			return;
 		}
 
 		for (int i = 0; i < n; i++) {
-			column[row] = i;
-			if (isPossible(row)) {
-				dfs(row + 1);
+			column[depth] = i;
+			if (isPossible(depth)) {
+				dfs(depth + 1);
 			}
 		}
 	}
 
-	static boolean isPossible(int row) {
-		for (int i = 0; i < row; i++) {
-			if (column[i] == column[row] || Math.abs(column[row] - column[i]) == row - i) {
+	static boolean isPossible(int depth) {
+		for (int i = 0; i < depth; i++) {
+			if (column[i] == column[depth] || Math.abs(column[depth] - column[i]) == depth - i) {
 				return false;
 			}
 		}

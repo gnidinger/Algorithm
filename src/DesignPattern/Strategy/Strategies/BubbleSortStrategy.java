@@ -1,19 +1,14 @@
-package SortImpl;
+package DesignPattern.Strategy.Strategies;
 
-import java.util.Arrays;
+public class BubbleSortStrategy implements SortingStrategy{
 
-public class BubbleSort {
-
-	public static void main(String[] args) {
-
-		int[] arr = {4, 16, 31, 5, 4, 17, 1, 10, 15, 3, 16, 6, 7, 2, 2, 1, 5, 13, 17, 14, 4, 0};
+	@Override
+	public void sort(int[] arr) {
 
 		bubbleSortImpl(arr);
-
-		System.out.println(Arrays.toString(arr));
 	}
 
-	public static void bubbleSortImpl(int[] arr) {
+	private static void bubbleSortImpl(int[] arr) {
 
 		for (int i = 1; i < arr.length; i++) { // 배열 길이보다 하나 적은 횟수만큼 반복
 

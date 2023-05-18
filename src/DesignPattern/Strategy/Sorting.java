@@ -6,7 +6,7 @@ import DesignPattern.Strategy.Context.SortingContext;
 import DesignPattern.Strategy.Strategies.BubbleSortStrategy;
 import DesignPattern.Strategy.Strategies.QuickSortStrategy;
 
-public class Main {
+public class Sorting {
 
 	public static void main(String[] args) {
 

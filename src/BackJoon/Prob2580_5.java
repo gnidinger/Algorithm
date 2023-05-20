@@ -59,7 +59,7 @@ public class Prob2580_5 {
 		int colStart = (col / 3) * 3;
 
 		for (int i = 0; i < 9; i++) {
-			if (board[row][1] == num || board[i][col] == num || board[rowStart + (i / 3)][colStart + (i % 3)] == num) {
+			if (board[row][i] == num || board[i][col] == num || board[rowStart + (i / 3)][colStart + (i % 3)] == num) {
 				return false;
 			}
 		}
@@ -68,11 +68,13 @@ public class Prob2580_5 {
 	}
 
 	private static void printBoard() {
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
-				System.out.print(board[i][j] + " ");
+				sb.append(board[i][j]).append(" ");
 			}
-			System.out.println();
+			sb.append("\n");
 		}
+		System.out.println(sb.toString());
 	}
 }

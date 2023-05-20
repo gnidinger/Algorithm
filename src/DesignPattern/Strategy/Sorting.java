@@ -11,6 +11,7 @@ public class Sorting {
 	public static void main(String[] args) {
 
 		int[] arr = {4, 16, 31, 5, 4, 17, 1, 10, 15, 3, 16, 6, 7, 2, 2, 1, 5, 13, 17, 14, 4, 0};
+		int[] arr2 = {4, 16, 31, 5, 4, 17, 1, 10, 15, 3, 16, 6, 7, 2, 2, 1, 5, 13, 17, 14, 4, 0};
 
 		SortingContext sortingContext = new SortingContext();
 
@@ -20,9 +21,9 @@ public class Sorting {
 		System.out.println(Arrays.toString(arr));
 
 		sortingContext.setSortingStrategy(new QuickSortStrategy());
-		sortingContext.doSort(arr);
+		sortingContext.doSort(arr2);
 
-		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(arr2));
 
 	}
 }

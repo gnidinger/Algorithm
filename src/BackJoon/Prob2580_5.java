@@ -28,6 +28,7 @@ public class Prob2580_5 {
 	}
 
 	private static boolean sudoku(int row, int col) {
+
 		if (col == 9) {
 			return sudoku(row + 1, 0);
 		}

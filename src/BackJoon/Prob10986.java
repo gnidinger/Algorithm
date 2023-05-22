@@ -31,7 +31,7 @@ public class Prob10986 {
 		long result = count[0];  // 나머지가 0인 경우의 수 전체를 먼저 추가
 
 		for (int i = 0; i < M; i++) {
-			result += (count[i] * (count[i] - 1)) / 2;  // 나머지가 같은 두 위치에서 합이 M으로 나누어떨어지는 경우를 찾아 추가
+			result += (count[i] * (count[i] - 1)) / 2;  // 나머지가 같은 두 위치에서 차가 M으로 나누어떨어지는 경우를 찾아 추가
 		}
 
 		System.out.println(result);

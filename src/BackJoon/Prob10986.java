@@ -6,35 +6,36 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Prob10986 {
+
 	public static void main(String[] args) throws IOException {
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
 
-		long[] prefixSum = new long[N];
-		long[] count = new long[M];
+		long[] sum = new long[n];
+		long[] cnt = new long[m];
 
 		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < n; i++) {
 			int num = Integer.parseInt(st.nextToken());
 			if (i > 0) {
-				prefixSum[i] = prefixSum[i - 1];
+				sum[i] = sum[i - 1];
 			}
-			prefixSum[i] += num;
+			sum[i] += num;
 
-			int remainder = (int) (prefixSum[i] % M);
-			count[remainder]++;
+			int remain = (int)(sum[i] % m);
+			cnt[remain]++; // 나머지 값의 개수에 따라 누적합 분류
 		}
 
-		long result = count[0];  // 나머지가 0인 경우의 수 전체를 먼저 추가
+		long result = cnt[0];  // 누적합 중 나머지가 0인 개수로 초기화
 
-		for (int i = 0; i < M; i++) {
-			result += (count[i] * (count[i] - 1)) / 2;  // 나머지가 같은 두 위치에서 차가 M으로 나누어떨어지는 경우를 찾아 추가
+		for (int i = 0; i < m; i++) {
+			result += (cnt[i] * (cnt[i] - 1)) / 2;  // 나머지가 같은 경우 그 차이는 M으로 나누어 떨어진다.
 		}
 
 		System.out.println(result);
 	}
 }
-

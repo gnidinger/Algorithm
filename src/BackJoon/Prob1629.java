@@ -19,13 +19,13 @@ public class Prob1629 {
 		System.out.println(pow(a, b, c));
 	}
 
-	private static int pow(int a, int exponent, int mod) {
+	private static long pow(int a, int exponent, int mod) {
 
 		if (exponent == 1) {
 			return a % mod;
 		}
 
-		int temp = pow(a, exponent / 2, mod);
+		long temp = pow(a, exponent / 2, mod);
 
 		if (exponent % 2 == 0) {
 			return (temp * temp) % mod;

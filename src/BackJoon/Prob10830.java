@@ -10,7 +10,7 @@ public class Prob10830 {
 	static int n;
 	static long b;
 	static int[][] A;
-	static int mod = 1000;
+	static int p = 1000;
 
 	public static void main(String[] args) throws IOException {
 
@@ -24,7 +24,7 @@ public class Prob10830 {
 		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			for (int j = 0; j < n; j++) {
-				A[i][j] = Integer.parseInt(st.nextToken()) % mod;
+				A[i][j] = Integer.parseInt(st.nextToken()) % p;
 			}
 		}
 
@@ -62,9 +62,9 @@ public class Prob10830 {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				for (int k = 0; k < n; k++) {
-					C[i][j] += (A[i][k] * B[k][j]) % mod;
+					C[i][j] += (A[i][k] * B[k][j]) % p;
 				}
-				C[i][j] %= mod;
+				C[i][j] %= p;
 			}
 		}
 

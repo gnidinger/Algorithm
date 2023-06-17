@@ -32,7 +32,7 @@ public class Prob1920 {
 			numbers[i] = Integer.parseInt(st.nextToken());
 		}
 
-		StringBuilder sb = new StringBuilder();
+		StringBuilder result = new StringBuilder();
 
 		for (int number : numbers) {
 			boolean isFound = false;
@@ -52,9 +52,9 @@ public class Prob1920 {
 				}
 			}
 
-			sb.append(isFound? 1 : 0).append('\n');
+			result.append(isFound? 1 : 0).append('\n');
 		}
 
-		System.out.println(sb.toString());
+		System.out.println(result.toString());
 	}
 }

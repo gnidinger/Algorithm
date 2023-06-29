@@ -12,7 +12,10 @@ public class Prob12015 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int n = Integer.parseInt(br.readLine());
-		int[] numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+		int[] numbers =
+			Arrays.stream(br.readLine().split(" "))
+				.mapToInt(Integer::parseInt)
+				.toArray();
 
 		int[] lis = new int[n];
 		int length = 0;

@@ -10,16 +10,16 @@ public class Prob1300 {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int n = Integer.parseInt(br.readLine());
-		int k = Integer.parseInt(br.readLine());
+		long n = Integer.parseInt(br.readLine());
+		long k = Integer.parseInt(br.readLine());
 
-		int left = 1;
-		int right = n * n;
-		int answer = 0;
+		long left = 1;
+		long right = n * n;
+		long answer = 0;
 
 		while (left <= right) {
-			int mid = (left + right) / 2;
-			int count = 0;
+			long mid = (left + right) / 2;
+			long count = 0;
 
 			for (int i = 1; i <= n; i++) {
 				count += Math.min(mid / i, n);

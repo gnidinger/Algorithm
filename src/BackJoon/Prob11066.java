@@ -18,10 +18,15 @@ public class Prob11066 {
 			int k = Integer.parseInt(br.readLine());
 			int[] files = new int[k + 1];
 			int[][] dp = new int[k + 1][k + 1];
+			int[] s = new int[k + 1];
 
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int i = 1; i <= k; i++) {
 				files[i] = Integer.parseInt(st.nextToken());
+			}
+
+			for (int i = 1; i <= k; i++) {
+				s[i] = s[i - 1] + files[i];
 			}
 
 			for (int i = 2; i <= k; i++) {
@@ -31,7 +36,7 @@ public class Prob11066 {
 					dp[j][m] = Integer.MAX_VALUE;
 
 					for (int x = j; x < m; x++) {
-						int cost = dp[j][x] + dp[x + 1][m] + sum(files, j, m);
+						int cost = dp[j][x] + dp[x + 1][m] + s[m] - s[j - 1];
 						dp[j][m] = Math.min(dp[j][m], cost);
 					}
 				}
@@ -41,15 +46,5 @@ public class Prob11066 {
 
 			t--;
 		}
-	}
-
-	private static int sum(int[] files, int start, int end) {
-
-		int sum = 0;
-		for (int i = start; i <= end; i++) {
-			sum += files[i];
-		}
-
-		return sum;
 	}
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Prob_1520 {
+public class Prob1520 {
 
 	static int m;
 	static int n;

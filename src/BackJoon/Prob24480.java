@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Prob24479 {
+public class Prob24480 {
 
 	static List<Integer>[] graph;
 	static boolean[] visited;
@@ -26,7 +26,7 @@ public class Prob24479 {
 		int r = Integer.parseInt(st.nextToken());
 
 		graph = new ArrayList[n + 1];
-		for (int i = 0; i <= n; i++) {
+		for (int i = 1; i <= n; i++) {
 			graph[i] = new ArrayList<>();
 		}
 
@@ -34,7 +34,7 @@ public class Prob24479 {
 		order = new int[n + 1];
 
 		for (int i = 0; i < m; i++) {
-			st = new StringTokenizer(br.readLine());
+			st = new StringTokenizer(br.readLine(), " ");
 			int u = Integer.parseInt(st.nextToken());
 			int v = Integer.parseInt(st.nextToken());
 
@@ -43,7 +43,7 @@ public class Prob24479 {
 		}
 
 		for (int i = 1; i <= n; i++) {
-			Collections.sort(graph[i]);
+			graph[i].sort(Collections.reverseOrder());
 		}
 
 		dfs(r);
@@ -51,13 +51,12 @@ public class Prob24479 {
 		for (int i = 1; i <= n; i++) {
 			System.out.println(order[i]);
 		}
-
 	}
 
 	static void dfs(int node) {
 		visited[node] = true;
 		order[node] = count++;
-		for (int next : graph[node]) {
+		for(int next : graph[node]) {
 			if (!visited[next]) {
 				dfs(next);
 			}

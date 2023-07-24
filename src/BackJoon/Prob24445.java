@@ -11,7 +11,6 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Prob24445 {
-
 	static List<Integer>[] graph;
 	static boolean[] visited;
 	static int[] order;

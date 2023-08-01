@@ -9,11 +9,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Prob24444 {
+public class Prob1260 {
+
 	static List<Integer>[] graph;
 	static boolean[] visited;
-	static int[] order;
-	static int count = 1;
 
 	public static void main(String[] args) throws IOException {
 
@@ -22,51 +21,61 @@ public class Prob24444 {
 
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
-		int r = Integer.parseInt(st.nextToken());
+		int v = Integer.parseInt(st.nextToken());
 
 		graph = new ArrayList[n + 1];
-		for (int i = 0; i <= n; i++) {
+
+		for (int i = 1; i <= n; i++) {
 			graph[i] = new ArrayList<>();
 		}
 
-		visited = new boolean[n + 1];
-		order = new int[n + 1];
-
 		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(br.readLine());
-			int u = Integer.parseInt(st.nextToken());
-			int v = Integer.parseInt(st.nextToken());
 
-			graph[u].add(v);
-			graph[v].add(u);
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(st.nextToken());
+
+			graph[x].add(y);
+			graph[y].add(x);
 		}
 
 		for (int i = 1; i <= n; i++) {
 			Collections.sort(graph[i]);
 		}
 
-		bfs(r);
+		visited = new boolean[n + 1];
+		dfs(v);
+		System.out.println();
 
-		for (int i = 1; i <= n; i++) {
-			System.out.println(order[i]);
+		visited = new boolean[n + 1];
+		bfs(v);
+
+	}
+
+	private static void dfs(int node) {
+		visited[node] = true;
+		System.out.print(node + " ");
+		for (int i : graph[node]) {
+			if (!visited[i]) {
+				dfs(i);
+			}
 		}
 	}
 
-	static void bfs(int node) {
+	private static void bfs(int node) {
 		ArrayDeque<Integer> queue = new ArrayDeque<>();
-		visited[node] = true;
-		order[node] = count++;
 		queue.offer(node);
-
+		visited[node] = true;
 		while (!queue.isEmpty()) {
-			int current = queue.poll();
-			for (int next : graph[current]) {
-				if (!visited[next]) {
-					visited[next] = true;
-					order[next] = count++;
-					queue.offer(next);
+			int v = queue.poll();
+			System.out.print(v + " ");
+			for (int i : graph[v]) {
+				if (!visited[i]) {
+					queue.offer(i);
+					visited[i] = true;
 				}
 			}
 		}
 	}
 }
+

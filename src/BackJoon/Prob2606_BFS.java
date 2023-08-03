@@ -5,35 +5,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Prob24445 {
+public class Prob2606_BFS {
 	static List<Integer>[] graph;
 	static boolean[] visited;
-	static int[] order;
-	static int count = 1;
+	static int count = 0;
 
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		int n = Integer.parseInt(st.nextToken());
-		int m = Integer.parseInt(st.nextToken());
-		int r = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(br.readLine());
+		int m = Integer.parseInt(br.readLine());
 
 		graph = new ArrayList[n + 1];
-		for (int i = 1; i <= n; i++) {
+		for (int i = 0; i <= n; i++) {
 			graph[i] = new ArrayList<>();
 		}
 
 		visited = new boolean[n + 1];
-		order = new int[n + 1];
 
 		for (int i = 0; i < m; i++) {
-			st = new StringTokenizer(br.readLine());
+			StringTokenizer st = new StringTokenizer(br.readLine());
 			int u = Integer.parseInt(st.nextToken());
 			int v = Integer.parseInt(st.nextToken());
 
@@ -41,30 +36,24 @@ public class Prob24445 {
 			graph[v].add(u);
 		}
 
-		for (int i = 1; i <= n; i++) {
-			Collections.sort(graph[i], Collections.reverseOrder());
-		}
+		bfs(1);
 
-		bfs(r);
-
-		for (int i = 1; i <= n; i++) {
-			System.out.println(order[i]);
-		}
+		System.out.println(count - 1);
 	}
 
-	static void bfs(int node) {
+	private static void bfs(int start) {
 		ArrayDeque<Integer> queue = new ArrayDeque<>();
-		queue.offer(node);
-		visited[node] = true;
-		order[node] = count++;
+		queue.offer(start);
+		visited[start] = true;
+		count++;
 
 		while (!queue.isEmpty()) {
-			int current = queue.poll();
-			for (int next : graph[current]) {
+			int node = queue.poll();
+			for (int next : graph[node]) {
 				if (!visited[next]) {
 					queue.offer(next);
 					visited[next] = true;
-					order[next] = count++;
+					count++;
 				}
 			}
 		}

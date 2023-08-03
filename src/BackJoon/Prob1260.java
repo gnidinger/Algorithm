@@ -49,7 +49,6 @@ public class Prob1260 {
 
 		visited = new boolean[n + 1];
 		bfs(v);
-
 	}
 
 	private static void dfs(int node) {

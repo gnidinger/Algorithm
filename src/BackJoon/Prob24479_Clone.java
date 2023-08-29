@@ -40,7 +40,7 @@ public class Prob24479_Clone {
 			graph[v].add(u);
 		}
 
-		for (int i = 1; i <= n; i++) {
+		for (int i = 0; i <= n; i++) {
 			Collections.sort(graph[i]);
 		}
 
@@ -49,7 +49,6 @@ public class Prob24479_Clone {
 		for (int i = 1; i <= n; i++) {
 			System.out.println(order[i]);
 		}
-
 	}
 
 	static void dfs(int node) {
